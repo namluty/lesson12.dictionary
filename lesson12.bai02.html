@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a dictionary simple</title>
+</head>
+<body>
+<p> Nhập từ cần tra cứu</p>
+<input id="inputtext" type="text">
+<button type="button" onclick="dictionary();">Search</button>
+<script>
+    let english = ['mobile', 'bag', 'car', 'pencil', 'computer', 'windown'];
+    let vietnamese = ['điện thoại di động', 'túi', 'ô tô', 'bút chì', 'máy tính', 'cửa sổ'];
+    let kytuinhoa = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let kytu ='abcdefghijklmnopqrstuvwxyz';
+    function dictionary() {
+        let results ='';
+        let dich ='';
+        let keywords = document.getElementById('inputtext').value;
+        for (let i=0; i < keywords.length; i++) {
+            if (kytuinhoa.indexOf(keywords[i]) >= 0) {
+                results += keywords[i].toLowerCase();
+            } else {
+                results += keywords[i];
+            }
+        }
+        for (let u = 0; u < english.length; u++) {
+            if (results == english[u]) {
+                dich = vietnamese[u];
+            }
+        }
+        if (dich =='') {
+            alert('Nothing... in the world. WARNING!');
+        } else {
+            alert('Nghĩa là: ' + dich);
+            document.getElementById('inputtext').value ='';
+        }
+    }
+</script>
+</body>
+</html>
